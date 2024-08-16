@@ -1,43 +1,78 @@
 body {
-    background-image: url('/static/images/festival_background.jpg'); /* Ensure the image path is correct */
+    background-image: url('/static/images/festival_background.jpg');
     background-size: cover;
     background-position: center;
     color: white;
+    font-family: 'Arial', sans-serif;
 }
 
 .container {
     max-width: 600px;
-    margin-top: 15vh;
+    margin: 15vh auto;
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.7); /* Slightly transparent black background */
+    background-color: rgba(0, 0, 0, 0.7);
     border-radius: 10px;
 }
 
-h1#banner {
-    font-size: 3rem; /* Larger font size */
-    font-weight: bold; /* Bold font weight */
-    color: #FFD700; /* Gold color */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Add a shadow for better contrast */
+h1 {
+    font-size: 3rem;
+    color: #FFD700; /* Gold color for the title */
     margin-bottom: 20px;
 }
 
 .form-group label {
-    color: #FFD700; /* Matching label color */
+    color: #FFD700; /* Gold color for the labels */
+    font-weight: bold;
 }
 
 .form-control {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.9);
     border: none;
     color: #333;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: 5px;
 }
 
 .btn-primary {
     background-color: #FFD700;
     border-color: #FFD700;
     color: #333;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-.alert {
-    margin-top: 20px;
-    font-size: 1.2rem;
+.btn-primary:hover {
+    background-color: #FFC300;
+}
+
+/* Apply the gold color to the banner text */
+.navbar-brand {
+    font-size: 2rem;
+    color: #FFD700 !important; /* Gold color for the banner */
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .btn-primary {
+        width: 100%;
+        padding: 12px;
+        font-size: 1.5rem;
+    }
+
+    .navbar-brand {
+        font-size: 1.8rem;
+    }
 }
