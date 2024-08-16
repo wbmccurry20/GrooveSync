@@ -1,80 +1,70 @@
-# DJ Assistant
+# GrooveSync
 
-DJ Assistant is a tool to download and manage playlists from SoundCloud, process them for use with DJ equipment, and ensure high-quality storage on external drives.
+GrooveSync is a Python-based tool designed to help DJs download playlists and more. This project uses Flask for the web interface and `youtube_dl` for downloading audio tracks from SoundCloud.
 
 ## Features
 
-- Download songs as MP3 from SoundCloud playlists
-- Ensure high-quality downloads with threading
-- Simple front-end for user input
-- Automatically upload songs to Rekordbox and external drives
-- Clean up local storage after processing
+- Download playlists from SoundCloud and other sources.
+- Skip tracks that have already been downloaded to avoid duplicates.
+- Simple web interface with Bootstrap styling.
+- Extensible and ready for future features like Rekordbox integration.
 
-## Requirements
+## Prerequisites
 
-- Python 3.9
-- Flask
-- yt-dlp
-- ffmpeg
+Before setting up this project, ensure you have the following installed on your machine:
 
-## Installation
+- Python 3.7 or higher
+- Git
 
-1. Clone the repository:
+For Windows users:
+- Install Python from [python.org](https://www.python.org/downloads/).
+- Ensure `pip` is included in your Python installation.
+- Optionally, install [Git for Windows](https://gitforwindows.org/) for easier command line access to Git.
 
-    ```sh
-    git clone <repository_url>
-    cd dj_assistant
-    ```
+## Getting Started
 
-2. Create and activate a virtual environment:
+### 1. Clone the Repository
 
-    ```sh
-    python3 -m venv venv
-    source venv/bin/activate
-    ```
+First, clone the repository to your local machine.
 
-3. Install the requirements:
+git clone https://github.com/yourusername/groovesync.git
+cd groovesync
 
-    ```sh
-    pip install -r requirements.txt
-    ```
+### 2. Create a Virtual Environment
 
-4. Install ffmpeg (if not already installed):
+#### For macOS/Linux
+python3 -m venv venv
+source venv/bin/activate
 
-    ```sh
-    brew install ffmpeg
-    ```
+### For Windows
+python -m venv venv
+.\venv\Scripts\activate
 
-## Usage
+### 3. Install the Package
+pip install .
 
-1. Run the application:
+### 4. Run the application
+python main.py
 
-    ```sh
-    python app.py
-    ```
 
-2. Follow the prompts to enter the SoundCloud playlist URL and the download directory.
 
-## Packaging
+### 5. Access Web Interface
+#### Open your web browser and navigate to http://127.0.0.1:5000 to access the GrooveSync interface.
 
-To create a standalone executable:
+### 6. Using the Application
 
-1. Ensure the virtual environment is activated.
-2. Run `pyinstaller`:
+1. Enter the playlist URL in the "Playlist URL" field.
+2. Enter the download location in the "Download Location" field.
+3. Click the "Download" button to start downloading the playlist.
 
-    ```sh
-    pyinstaller --onefile --name dj_assistant app.py
-    ```
+### 7. Customizing and Extending GrooveSync
 
-## Running the Executable
+GrooveSync is designed to be extensible. You can add new features or modify existing ones by editing the Python scripts in the `scripts` directory and the HTML/CSS files in the `templates` and `static` directories.
 
-1. Locate the executable in the `dist` directory.
-2. Run the executable:
+### 8. Contributing
 
-    ```sh
-    ./dist/dj_assistant
-    ```
+If you'd like to contribute to GrooveSync, feel free to fork the repository, make your changes, and submit a pull request. We welcome all improvements and new features.
 
-## License
+### 9. License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License. See the `LICENSE` file for details.
