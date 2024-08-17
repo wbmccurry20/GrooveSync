@@ -10,7 +10,7 @@ def download_soundcloud(url, download_dir='downloads'):
 
         ydl_opts = {
             'format': 'bestaudio/best',
-            'outtmpl': os.path.join(download_dir, '%(title)s.%(ext)s'),
+            'outtmpl': os.path.join(download_dir, '%(title)s.%(ext)s'),  # Save directly to the target directory
             'postprocessors': [{
                 'key': 'FFmpegExtractAudio',
                 'preferredcodec': 'mp3',
@@ -21,19 +21,17 @@ def download_soundcloud(url, download_dir='downloads'):
         }
 
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-            info_dict = ydl.extract_info(url, download=False)
+            logging.info(f"Downloading URL: {url}")
+            info_dict = ydl.extract_info(url, download=True)
             title = info_dict.get('title', None)
-
             if title:
                 file_path = os.path.join(download_dir, f"{title}.mp3")
                 if os.path.isfile(file_path):
-                    logging.info(f"File '{title}.mp3' already exists. Skipping download.")
-                    return {"success": True, "message": f"'{title}.mp3' already exists. Skipping."}
-                
-                # Proceed with the download since the file does not exist
-                ydl.download([url])
-                logging.info(f"Download completed successfully: {title}.mp3")
-                return {"success": True, "message": f"Download completed successfully: {title}.mp3"}
+                    logging.info(f"Download successful: {file_path}")
+                    return {"success": True, "message": f"Download completed successfully: {title}.mp3"}
+                else:
+                    logging.error("File not found after download.")
+                    return {"success": False, "error": "File not found after download."}
             else:
                 logging.error("Could not extract title from the URL.")
                 return {"success": False, "error": "Could not extract title from the URL."}
