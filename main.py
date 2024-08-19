@@ -1,11 +1,12 @@
 from flask import Flask, redirect, request
+from app.routes import init_routes  # Make sure this is correctly imported from your app.routes module
 
 def create_app():
     app = Flask(__name__, static_folder='static', template_folder='templates')
 
     @app.before_request
     def before_request():
-        if request.is_secure is False:
+        if not request.is_secure:
             url = request.url.replace('http://', 'https://', 1)
             return redirect(url, code=301)
 
