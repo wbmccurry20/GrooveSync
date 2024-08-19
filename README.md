@@ -4,7 +4,7 @@ GrooveSync is a Python-based tool designed to help DJs download playlists and mo
 
 ## Features
 
-- Download playlists from SoundCloud and other sources.
+- Download playlists from SoundCloud and other sources
 - Skip tracks that have already been downloaded to avoid duplicates.
 - Simple web interface with Bootstrap styling.
 - Extensible and ready for future features like Rekordbox integration.
